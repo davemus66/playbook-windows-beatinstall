@@ -1,3 +1,3 @@
 ---
 
-- include: role-windows-beatinstall.yml
+- include: role-windows-beatinstall
