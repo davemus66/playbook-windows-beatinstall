@@ -1,0 +1,5 @@
+---
+
+- src: https://github.com/davemus66/role-windows-beatinstall.git
+  scm: git
+  version: master

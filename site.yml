@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  become_user: davemus
+  pre_tasks:
+    - name: downloading files to jenkins
+      get_url:
+        url: "{{ source }}/{{ beats }}/{{ beats }}-{{ version }}-windows-x86_64.zip"
+        dest: /tmp
+
+- hosts: windows
+  roles:
+    - role-windows-beatinstall
+
+- hosts: localhost
+  become_user: davemus
+  post_tasks:
+    - name: deleting downloaded files
+      file:
+        path: "/tmp/{{ beats }}-{{ version }}-windows-x86_64.zip"
+        state: absent
+
